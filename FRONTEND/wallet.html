@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instant app</title>
+    <link rel="stylesheet" href="wallet.css">
+</head>
+<body>
+
+  <div class="container">
+    <div id="doneText" class="done">Done</div>
+    <div id="statusIcon" class="icon">✔️</div>
+    <h2 id="statusMessage" class="status-message">Wallet Funded Successfully</h2>
+
+    <div class="details" id="detailsBox">
+      <p>Amount Funded: <span id="amountFunded">₦0</span></p>
+      <p>New Wallet Balance: <span id="walletBalance">₦0</span></p>
+      <p>Transaction ID: <span id="transactionId">#0000000000</span></p>
+      <p>Date: <span id="fundDate">--</span></p>
+    </div>
+
+    <button onclick="goToWallet()">Go to Wallet</button> 
+    
+  </div>
+    
+<script src="wallet.js"></script>
+    
+</body>
+</html>
