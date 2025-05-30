@@ -3,10 +3,23 @@ const path = require ('path');
 const cors = require ('cors');
 const helmet = require ('helmet');
 const cookieParse = require ('cookie-parser');
-
+const morgan = require('morgan');
+const mongoSanitize = require('express-mongo-sanitize');
 const mongoose = require ('mongoose');
+const xss = require('xss-clean');
 const dotenv = require('dotenv');
+const hpp = require('hpp');
 dotenv.config();
+const errorHandler = require('./BACKEND/src/middleware/errorHandler');
+const { generalLimiter } = require('./BACKEND/src/middleware/rateLimiter');
+
+
+const auth = require('./BACKEND/src/routes/auth');
+const user = require('./BACKEND/src/routes/user');
+const wallet = require('./BACKEND/src/routes/wallets');
+const electricity = require('./BACKEND/src/routes/electricity');
+const airtime = require('./BACKEND/src/routes/airtime');
+const data = require('./BACKEND/src/routes/data');
 
 
 const app = express();
@@ -24,9 +37,54 @@ app.use(helmet());
 app.use(cookieParse());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(express.json({ limit: '10mb' }));
 
+// Dev logging middleware
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
+}
 
+// Security headers
+app.use(helmet());
 
+// Prevent NoSQL injections
+app.use(mongoSanitize());
+
+// Prevent XSS attacks
+app.use(xss());
+
+// Prevent http param pollution
+app.use(hpp());
+
+// Rate limiting
+app.use(generalLimiter);
+
+// Enable CORS
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  credentials: true
+}));
+
+// Mount routers
+app.use('/api/auth', auth);
+app.use('/api/user', user);
+app.use('/api/wallet', wallet);
+app.use('/api/bills/electricity', electricity);
+app.use('/api/bills/airtime', airtime);
+app.use('/api/bills/data', data);
+
+// Health check
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'API is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
+app.use(errorHandler);
+
+module.exports = app;
 
 app.get('/', (req, res) =>{
     res.send("instant app");
