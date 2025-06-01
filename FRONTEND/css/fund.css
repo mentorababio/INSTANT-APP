@@ -1,0 +1,86 @@
+body {
+  background: #fff;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding-bottom: 60px;
+}
+
+.fund-container {
+  max-width: 400px;
+  margin: 60px auto 0 auto;
+  padding: 30px 20px 20px 20px;
+  background: #f9fafd;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #e7eaf0;
+}
+
+header h2 {
+  font-size: 1.4em;
+  color: #0c2d4a;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #222;
+  font-weight: 500;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #cfd8dc;
+  border-radius: 8px;
+  font-size: 1.2em;
+  margin-bottom: 28px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 14px;
+  background: #0c2d4a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.continue-btn:hover {
+  background: #174d7c;
+}
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 10;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: #0c2d4a;
+  font-size: 1em;
+  padding: 6px 0;
+  flex: 1;
+  cursor: pointer;
+}
+
+.nav-btn.active {
+  color: #007aff;
+  font-weight: bold;
+  border-bottom: 2px solid #007aff;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forget Password</title>
+  <link rel="stylesheet" href="css/forgetpass.css">
+</head>
+<body>
+  <div class="container">
+    <h2 class="title">Forget Password</h2>
+    <div class="illustration">
+      <img src="img/forgetpass.jpeg" alt="Lock Illustration" />
+    </div>
+    <form id="resetForm" autocomplete="off">
+      <p class="subtitle">Your New Password Must Be Different From Previously Used Password</p>
+      <label for="new-password">New Password</label>
+      <input type="password" id="new-password" required placeholder="Enter new password" />
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" required placeholder="Re-enter new password" />
+
+      <button type="submit" class="btn">Change Password</button>
+    </form>
+    <div id="message"></div>
+  </div>
+  <script src="js/forget.js"></script>
+</body>

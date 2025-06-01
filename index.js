@@ -21,8 +21,58 @@ const electricity = require('./BACKEND/src/routes/electricity');
 const airtime = require('./BACKEND/src/routes/airtime');
 const data = require('./BACKEND/src/routes/data');
 
-
 const app = express();
+
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'profile.html')); // or whatever your profile HTML file is named
+});
+
+app.get('/fund', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'fund.html'));
+});
+
+app.get('/history', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'History.html'));
+});
+
+
+app.get('/airtime', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'airtime.html'));
+});
+
+app.get('/data', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'data.html'));
+});
+
+app.get('/wallet', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'wallet.html'));
+});
+
+app.get('/onboardingpage1', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'onboardingpage1.html'));
+});
+
+app.get('/onboardingpage2', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'onboardingpage2.html'));
+});
+
+app.get('/onboardingpage3', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'onboardingpage3.html'));
+});
+
+app.get('/payment', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'payment-method.html'));
+});
+
+app.get('/card-payment', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'card-payment.html'));
+});
+// index.js
+
+
+
+
+
 console.log('Mongo_URI:', process.env.MONGO_URI); // add this before mongoose.connect
 
 
@@ -31,7 +81,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((error) => console.error('MongoDB connection error:', error));
 
 
-
+app.use(express.static('FRONTEND'));
 app.use(cors());
 app.use(helmet());
 app.use(cookieParse());

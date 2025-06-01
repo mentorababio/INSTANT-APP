@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #f0f0f0;
+}
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+}
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+h2 {
+  margin-bottom: 10px;
+}
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 20px auto;
+  border: 2px solid #ddd;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 12px 15px;
+  background: #f4f4f4;
+  margin: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.button:hover {
+  background: #e0e0e0;
+}
+.icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.points-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.points {
+  background: #f4f4f4;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.claim-button {
+  background: #00796b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.claim-button:hover {
+  background: #00557a;
+}
+
+/* Optional testing button */
+.add-btn {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.add-btn:hover {
+  background-color: #00796b;
+}

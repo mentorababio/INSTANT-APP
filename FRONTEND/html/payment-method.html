@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="payment-method.css">
+</head>
+<body>    
+
+          
+        
+
+
+          <div class="container">
+            <div class="back-btn" onclick="goHome()">←</div>
+            <h2>Choose Payment Method</h2>
+          
+            <div class="option" data-url="card-payment.html" onclick="selectOption(this)">
+            
+              <span>Debit/Credit Card</span>
+            </div>
+          
+            <div class="option" data-url="bank-transfer.html" onclick="selectOption(this)">
+              
+              <span>Bank Transfer</span>
+            </div>
+          
+            <div class="option" data-url="ussd.html" onclick="selectOption(this)">
+              
+              <span>USSD</span>
+            </div>
+          
+            <div class="option" data-url="mobile-money.html" onclick="selectOption(this)">
+            
+              <span>Mobile Money (optional)</span>
+            </div>
+          
+            <button class="btn" onclick="proceed()">Proceed</button>
+          </div>
+        
+
+          
+
+  
+
+
+
+
+
+    
+    
+<script src="payment-method.js"></script>
+    
+</body>
+</html>

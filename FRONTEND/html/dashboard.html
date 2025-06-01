@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wallet Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Home Screen -->
+    <div id="home-screen" class="screen">
+      <header>
+        <span class="greeting">Hi John</span>
+        <span class="avatar"></span>
+      </header>
+      <section class="wallet">
+        <div>
+          <div class="wallet-label">Wallet Balance</div>
+          <div class="wallet-balance">&#8358;200,050.00</div>
+          <button id="show-balance-btn">Show balance</button>
+        </div>
+        <button id="fund-wallet-btn" class="primary">Fund Wallet</button>
+      </section>
+      <section>
+        <h2>Active Subscriptions</h2>
+        <div class="subscriptions">
+          <div class="subscription-card">
+            <div>MTN Data</div>
+            <div>SUB Date: 04-25</div>
+            <div>Status: Active</div>
+            <div>Amount: &#8358;15,000</div>
+            <button class="manage-btn">Manage</button>
+          </div>
+          <div class="subscription-card">
+            <div>DSTV</div>
+            <div>SUB Date: 04-25</div>
+            <div>Status: Active</div>
+            <div>Amount: &#8358;15,000</div>
+            <button class="manage-btn">Manage</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Quick Actions</h2>
+        <div class="quick-actions">
+          <button>Pay Bill</button>
+          <button>Buy Airtime</button>
+          <button>History</button>
+        </div>
+      </section>
+      <section>
+        <h2>Expired Subscriptions</h2>
+        <div class="expired">
+          <div class="expired-card">Electricity</div>
+          <div class="expired-card">Water</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Fund Wallet Screen -->
+    <div id="fund-screen" class="screen" style="display:none;">
+      <h2>Enter Amount</h2>
+      <label for="amount-input">Amount to Fund</label>
+      <input type="number" id="amount-input" placeholder="50,000">
+      <button id="continue-btn" class="primary">Continue</button>
+    </div>
+  </div>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-screen="home-screen">Home</button>
+    <button class="nav-btn" data-screen="fund-screen">Payment</button>
+    <button class="nav-btn">Purchase</button>
+    <button class="nav-btn">History</button>
+    <button class="nav-btn">Profile</button>
+  </nav>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
