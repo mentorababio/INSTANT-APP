@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User = require('../models/User');
 const Wallet = require('../models/Wallet');
 const crypto = require('crypto');
 
