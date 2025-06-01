@@ -1,5 +1,5 @@
-const Transaction = require('../models/transaction');
-const Wallet = require('../models/wallet');
+const Transaction = require('../models/Transaction');
+const Wallet = require('../models/Wallet');
 const { generateReference, formatPhoneNumber } = require('../utils/helpers');
 
 // Data plans configuration

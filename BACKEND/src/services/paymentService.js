@@ -3,7 +3,7 @@ import axios from 'axios';
 import Bill from '../models/BillPayment.js';
 import Transaction from '../models/Transaction.js';
 import Wallet from '../models/Wallet.js';
-import User from '../models/user.js';
+import User from '../models/User.js';
 import { logToCBN } from './cbnLogger.js';
 
 // Nigerian Bill Providers Configuration
