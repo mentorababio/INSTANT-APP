@@ -1,5 +1,5 @@
 // src/controllers/airtimeController.js
-const Transaction = require('../models/transaction');
+const Transaction = require('../models/Transaction');
 const Wallet = require('../models/wallet');
 const { generateReference, formatPhoneNumber } = require('../utils/helpers');
 
