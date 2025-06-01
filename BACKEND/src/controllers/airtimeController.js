@@ -1,7 +1,7 @@
 // src/controllers/airtimeController.js
-const Transaction = require('../models/Transaction');
-const Wallet = require('../models/wallet');
-const { generateReference, formatPhoneNumber } = require('../utils/helpers');
+const Transaction = require("../models/Transaction");
+const Wallet = require("../models/Wallet");
+const { generateReference, formatPhoneNumber } = require("../utils/helpers");
 
 // @desc    Purchase airtime
 // @route   POST /api/bills/airtime
@@ -19,28 +19,28 @@ exports.purchaseAirtime = async (req, res, next) => {
     if (!wallet || wallet.balance < amount) {
       return res.status(400).json({
         success: false,
-        message: 'Insufficient wallet balance'
+        message: "Insufficient wallet balance",
       });
     }
 
     // Generate transaction reference
-    const reference = generateReference('AIR');
+    const reference = generateReference("AIR");
 
     // Create transaction record
     const transaction = await Transaction.create({
       user: userId,
-      type: 'debit',
-      category: 'airtime',
+      type: "debit",
+      category: "airtime",
       amount,
       description: `Airtime purchase for ${formattedPhone}`,
       reference,
-      paymentMethod: 'wallet',
+      paymentMethod: "wallet",
       metadata: {
         phoneNumber: formattedPhone,
-        network
+        network,
       },
       balanceBefore: wallet.balance,
-      balanceAfter: wallet.balance - amount
+      balanceAfter: wallet.balance - amount,
     });
 
     // Update wallet balance
@@ -49,12 +49,12 @@ exports.purchaseAirtime = async (req, res, next) => {
 
     // Here you would integrate with actual airtime API
     // For now, we'll simulate success
-    transaction.status = 'success';
+    transaction.status = "success";
     await transaction.save();
 
     res.status(200).json({
       success: true,
-      message: 'Airtime purchase successful',
+      message: "Airtime purchase successful",
       data: {
         transaction: {
           id: transaction._id,
@@ -62,9 +62,9 @@ exports.purchaseAirtime = async (req, res, next) => {
           amount: transaction.amount,
           status: transaction.status,
           phoneNumber: formattedPhone,
-          network
-        }
-      }
+          network,
+        },
+      },
     });
   } catch (error) {
     next(error);
@@ -76,16 +76,16 @@ exports.purchaseAirtime = async (req, res, next) => {
 // @access  Private
 exports.getNetworkProviders = async (req, res, next) => {
   try {
-    const { NETWORK_PROVIDERS } = require('../utils/constants');
-    
+    const { NETWORK_PROVIDERS } = require("../utils/constants");
+
     const providers = Object.entries(NETWORK_PROVIDERS).map(([code, name]) => ({
       code,
-      name
+      name,
     }));
 
     res.status(200).json({
       success: true,
-      data: { providers }
+      data: { providers },
     });
   } catch (error) {
     next(error);
