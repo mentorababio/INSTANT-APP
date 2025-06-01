@@ -12,7 +12,7 @@ router.use(protect); // All routes are protected
 router.put('/profile', async (req, res, next) => {
   try {
     const { firstName, lastName, phone } = req.body;
-    const User = require('../models/user');
+    const User = require('../models/User');
     
     const user = await User.findById(req.user.id);
     
