@@ -68,7 +68,7 @@ app.get("/card-payment", (req, res) => {
 
 app.get('/forgetpass', (req, res) => {
     res.sendFile(path.join(__dirname, 'FRONTEND', 'forgetpass.html'));
-
+})
 // index.js
 
 console.log("Mongo_URI:", process.env.MONGO_URI); // add this before mongoose.connect
