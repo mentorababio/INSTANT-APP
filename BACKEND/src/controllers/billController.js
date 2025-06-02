@@ -1,7 +1,9 @@
 // src/api/v1/controllers/billController.js
-const { initiateBillPayment } = require('../../../BACKEND/src/services/paymentService');
-const User = require('../../../BACKEND/src/models/user');
-const { getProviders, getDataPlans } = require('../utils/constants');
+const {
+  initiateBillPayment,
+} = require("../../../BACKEND/src/services/paymentService");
+const User = require("../../../BACKEND/src/models/User");
+const { getProviders, getDataPlans } = require("../utils/constants");
 
 // Pay bill
 exports.payBill = async (req, res) => {
@@ -12,8 +14,8 @@ exports.payBill = async (req, res) => {
     const user = await User.findById(req.user.userId);
     if (!user.verifyTransactionPin(pin)) {
       return res.status(401).json({
-        error: 'INVALID_PIN',
-        message: 'Transaction PIN incorrect'
+        error: "INVALID_PIN",
+        message: "Transaction PIN incorrect",
       });
     }
 
@@ -23,20 +25,19 @@ exports.payBill = async (req, res) => {
       category,
       provider,
       amount,
-      details
+      details,
     });
 
     res.json({
       success: true,
       message: result.message,
-      reference: result.reference
+      reference: result.reference,
     });
-
   } catch (error) {
     res.status(400).json({
       success: false,
-      error: 'BILL_PAYMENT_FAILED',
-      message: error.message
+      error: "BILL_PAYMENT_FAILED",
+      message: error.message,
     });
   }
 };
@@ -58,16 +59,18 @@ exports.getDataPlans = async (req, res) => {
 // Get electricity providers
 exports.getElectricityProviders = async (req, res, next) => {
   try {
-    const { ELECTRICITY_PROVIDERS } = require('../utils/constants');
+    const { ELECTRICITY_PROVIDERS } = require("../utils/constants");
 
-    const providers = Object.entries(ELECTRICITY_PROVIDERS).map(([code, name]) => ({
-      code,
-      name
-    }));
+    const providers = Object.entries(ELECTRICITY_PROVIDERS).map(
+      ([code, name]) => ({
+        code,
+        name,
+      })
+    );
 
     res.status(200).json({
       success: true,
-      data: { providers }
+      data: { providers },
     });
   } catch (error) {
     next(error);
@@ -84,25 +87,25 @@ exports.validateMeter = async (req, res, next) => {
     if (!isValid) {
       return res.status(400).json({
         success: false,
-        message: 'Invalid meter number'
+        message: "Invalid meter number",
       });
     }
 
     const customerData = {
-      name: 'John Doe',
-      address: '123 Electric Ave, Lagos',
-      meterType: 'Postpaid',
-      trafficClass: 'Residential',
+      name: "John Doe",
+      address: "123 Electric Ave, Lagos",
+      meterType: "Postpaid",
+      trafficClass: "Residential",
     };
 
     res.status(200).json({
       success: true,
-      message: 'Meter validation successful',
+      message: "Meter validation successful",
       data: {
         meterNumber,
         discoCode,
-        customer: customerData
-      }
+        customer: customerData,
+      },
     });
   } catch (error) {
     next(error);
