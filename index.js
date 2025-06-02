@@ -95,7 +95,14 @@ if (process.env.NODE_ENV === "development") {
 app.use(helmet());
 
 // Prevent NoSQL injections
-app.use(mongoSanitize());
+
+app.use((req, res, next) => {
+  if (req.body) mongoSanitize.sanitize(req.body);
+  if (req.params) mongoSanitize.sanitize(req.params);
+  if (req.query) mongoSanitize.sanitize(req.query);
+  next();
+});
+
 
 // Prevent XSS attacks
 app.use(xss());
