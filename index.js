@@ -67,6 +67,10 @@ app.get('/payment', (req, res) => {
 app.get('/card-payment', (req, res) => {
     res.sendFile(path.join(__dirname, 'FRONTEND', 'card-payment.html'));
 });
+
+app.get('/forgetpass', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'forgetpass.html'));
+
 // index.js
 
 
