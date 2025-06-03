@@ -6,7 +6,6 @@ const cookieParser = require("cookie-parser");
 const morgan = require("morgan");
 const mongoSanitize = require("express-mongo-sanitize");
 const mongoose = require("mongoose");
-const xss = require("xss-clean");
 const dotenv = require("dotenv");
 const hpp = require("hpp");
 dotenv.config();
