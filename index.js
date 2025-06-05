@@ -103,8 +103,7 @@ app.use((req, res, next) => {
 });
 
 
-// Prevent XSS attacks
-app.use(xss());
+
 
 // Prevent http param pollution
 app.use(hpp());
