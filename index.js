@@ -22,7 +22,7 @@ const data = require("./BACKEND/src/routes/data");
 const app = express();
 
 app.get("/profile", (req, res) => {
-  res.sendFile(path.join(__dirname, "FRONTEND", "html/Profile.html")); // or whatever your profile HTML file is named
+  res.sendFile(path.join(__dirname, "FRONTEND", "html/profile.html")); // or whatever your profile HTML file is named
 });
 
 app.get("/fund", (req, res) => {
@@ -30,7 +30,7 @@ app.get("/fund", (req, res) => {
 });
 
 app.get("/history", (req, res) => {
-  res.sendFile(path.join(__dirname, "FRONTEND", "html/History.html"));
+  res.sendFile(path.join(__dirname, "FRONTEND", "html/history.html"));
 });
 
 app.get("/airtime", (req, res) => {
@@ -67,6 +67,10 @@ app.get("/card-payment", (req, res) => {
 
 app.get('/forgetpass', (req, res) => {
     res.sendFile(path.join(__dirname, 'FRONTEND', 'forgetpass.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, 'FRONTEND', 'dashboard.html'));
 })
 // index.js
 
